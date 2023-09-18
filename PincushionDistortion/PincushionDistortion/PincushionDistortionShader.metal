@@ -14,16 +14,17 @@ float mapRange(float value, float inMin, float inMax, float outMin, float outMax
     return ((value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin);
 }
 
-/// Calculates the `zoomOffset` based on`distanceProgress`, which represents the progress of the pixel's distance  to the maximum possible distance (the radius of the distortion effect).
+/// Calculates the `zoomOffset` using a damped sin wave function.
+/// The `distanceProgress` represents the progress of the pixel's distance to the maximum possible distance (the radius of the distortion effect).
+/// https://en.wikipedia.org/wiki/Damping#Damped_sine_wave
 float zoomOffset(float distanceProgress) {
-    
     // The constant for pi in the Metal shading language.
     float pi = M_PI_F;
     
     // The amplitude represents the maximum zoom offset.
     float amplitude = -0.5;
     
-    // The decay indicates how quickly the dampening occurs on the sine wave.
+    // The decay indicates how quickly the dampening fades out on the sine wave.
     float decay = 10;
     
     // The angularFrequency (period) indicates the displacement of the sine wave for one period.
