@@ -1,6 +1,6 @@
 //
-//  RippleShaders.metal
-//  ShaderPractice
+//  PincushionDistortionShader.metal
+//  PincushionDistortion
 //
 //  Created by Samuel McGarry on 9/17/23.
 //
